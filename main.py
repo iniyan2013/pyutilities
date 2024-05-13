@@ -1,6 +1,17 @@
 import math
-unit_of_measurement= str(input("what unit of measurement do you use: "))
-what_utility_input= str(input("what utility do you want use: "))
+unit_of_measurement=str(0)
+
+def  getinput():
+    unit_of_measurement= str(input("what unit of measurement do you use: "))
+    what_utility_input= str(input("""What utility do you want use:  
+                                  Enter
+                                    1 - for Square
+                                    2 - for Rectangle
+                                    3 - for pythogoras
+                                    4 - for quit
+                                    """))
+    return what_utility_input
+
 def rectangle():
     Height = float(input("what is the height: "))
     width = float(input("what is the width: "))
@@ -24,11 +35,26 @@ def pythogoras():
     square_of_hypotenuse= height_square+width_square
     hypotenuse = math.sqrt(square_of_hypotenuse)
     print("hypotenuse: ", hypotenuse,unit_of_measurement)
+    extended_features_input = str(input("Do you want our extended features?"))
+    if (extended_features_input=="yes"or"yeah"):
+        perimeter_rightangle_triangle = (hypotenuse+width+height)
+        area_rightangle_triangle = (width*height)/2
+        print("perimeter of your triangle is: ", perimeter_rightangle_triangle, unit_of_measurement)
+        print("area of your triangle is: ", area_rightangle_triangle,unit_of_measurement)
+    elif (extended_features_input== "no"):
+        print("okay")
+        what_utility_input = "4"
+
+while True:
+    what_utility_input = getinput()
+    if (what_utility_input=="1"):
+        square()
+    if (what_utility_input=="2"):
+        rectangle()
+    if (what_utility_input=="3"):
+        pythogoras()
+    if (what_utility_input=="4"):
+        break
+
+
     
-    
-if (what_utility_input=="square"):
-    square()
-if (what_utility_input=="rectangle"):
-   rectangle()
-if (what_utility_input=="pythogoras"):
-    pythogoras()
