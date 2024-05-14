@@ -47,6 +47,5 @@ with st.form("my_form_pythogoras"):
 
 
 
-
           
           
